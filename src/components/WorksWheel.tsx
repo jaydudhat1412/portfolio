@@ -143,7 +143,13 @@ export const WorksWheel: React.FC = () => {
         {viewMode === 'showcase' ? (
           /* ─── SHOWCASE MODE (Responsive 3D Deck with Gestures) ──────────────── */
           <div className="relative">
-            <div className="glow-card rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10 bg-[#0e121b]/80 backdrop-blur-2xl shadow-2xl overflow-hidden">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+              className="glow-card rounded-3xl p-6 sm:p-8 md:p-10 border border-white/10 bg-[#0e121b]/80 backdrop-blur-2xl shadow-2xl overflow-hidden"
+            >
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
                 {/* Visual Image Preview Frame (16:9, responsive, crystal-clear) */}
@@ -288,7 +294,7 @@ export const WorksWheel: React.FC = () => {
                 </div>
 
               </div>
-            </div>
+            </motion.div>
 
             {/* Showcase Quick Selector Tabs */}
             <div className="mt-6 flex items-center justify-center gap-2 flex-wrap">
@@ -311,9 +317,13 @@ export const WorksWheel: React.FC = () => {
         ) : (
           /* ─── GRID VIEW (Responsive High-Density Cards) ─────────────────────── */
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredProjects.map((project) => (
-              <div
+            {filteredProjects.map((project, idx) => (
+              <motion.div
                 key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: "easeOut" }}
                 onClick={() => setSelectedProject(project)}
                 className="glow-card rounded-2xl overflow-hidden border border-white/10 bg-[#0e121b]/80 hover:border-accent/40 transition-all cursor-pointer flex flex-col group"
               >
@@ -366,7 +376,7 @@ export const WorksWheel: React.FC = () => {
                     <ArrowRight size={14} className="text-accent group-hover:translate-x-1 transition-transform" />
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         )}

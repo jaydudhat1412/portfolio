@@ -79,14 +79,15 @@ export const Skills: React.FC = () => {
       {/* Skills Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
         <AnimatePresence mode="popLayout">
-          {filteredCategories.map((category) => (
+          {filteredCategories.map((category, idx) => (
             <motion.div
               key={category.categoryKey}
               layout
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
               exit={{ opacity: 0, scale: 0.95 }}
-              transition={{ duration: 0.4 }}
+              transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
               className="glow-card rounded-3xl p-6 sm:p-8 border border-white/10 bg-[#0e121b]/80 backdrop-blur-xl relative overflow-hidden flex flex-col justify-start h-full"
             >
               {/* Category Header */}
@@ -107,7 +108,14 @@ export const Skills: React.FC = () => {
               {/* Skill Items List */}
               <div className="space-y-5">
                 {category.skills.map((skill, sIdx) => (
-                  <div key={sIdx} className="group">
+                  <motion.div 
+                    key={sIdx} 
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.35, delay: sIdx * 0.05, ease: "easeOut" }}
+                    className="group"
+                  >
                     <div className="flex items-center justify-between mb-1.5">
                       <span className="text-sm font-semibold text-white group-hover:text-accent transition-colors">
                         {skill.name}
@@ -143,7 +151,7 @@ export const Skills: React.FC = () => {
                         </span>
                       ))}
                     </div>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -152,7 +160,13 @@ export const Skills: React.FC = () => {
       </div>
 
       {/* "Active Engineering Focus" Live Banner */}
-      <div className="glow-card rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-r from-[#0c101a] via-[#101424] to-[#0c101a]">
+      <motion.div 
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-40px" }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
+        className="glow-card rounded-2xl p-6 sm:p-7 border border-white/10 bg-gradient-to-r from-[#0c101a] via-[#101424] to-[#0c101a]"
+      >
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-4">
           <div className="flex items-center gap-3">
             <div className="p-2 rounded-xl bg-accent/10 border border-accent/20 text-accent">
@@ -185,7 +199,7 @@ export const Skills: React.FC = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };
