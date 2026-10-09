@@ -25,10 +25,17 @@ export const TerminalSection: React.FC = () => {
     }
   ]);
   const [copied, setCopied] = useState(false);
-  const bottomRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const isInitialMount = useRef(true);
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (isInitialMount.current) {
+      isInitialMount.current = false;
+      return;
+    }
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = scrollContainerRef.current.scrollHeight;
+    }
   }, [history]);
 
   const handleCommand = (cmdText: string) => {
@@ -219,7 +226,10 @@ export const TerminalSection: React.FC = () => {
         </div>
 
         {/* Terminal Body */}
-        <div className="p-5 md:p-6 min-h-[220px] max-h-[360px] overflow-y-auto space-y-4 font-mono text-sm leading-relaxed no-scrollbar">
+        <div 
+          ref={scrollContainerRef}
+          className="p-5 md:p-6 min-h-[220px] max-h-[360px] overflow-y-auto space-y-4 font-mono text-sm leading-relaxed no-scrollbar"
+        >
           {history.map((line) => (
             <div key={line.id} className="space-y-1">
               {line.type === 'command' ? (
@@ -233,7 +243,6 @@ export const TerminalSection: React.FC = () => {
               )}
             </div>
           ))}
-          <div ref={bottomRef} />
         </div>
 
         {/* Terminal Input Line */}

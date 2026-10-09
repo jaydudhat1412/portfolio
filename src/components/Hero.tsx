@@ -5,15 +5,15 @@ import { ArrowRight, FileText, Terminal } from 'lucide-react';
 
 export const Hero: React.FC = () => {
   return (
-    <section id="about" className="flex flex-col justify-center relative z-10 pt-16 md:pt-24 pb-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+    <section id="about" className="flex flex-col justify-center relative z-10 pt-6 md:pt-12 pb-6">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
         
-        {/* Left Column: Hero Headlines & Value Proposition */}
+        {/* Text Column: order-2 on mobile (below photo), order-1 on desktop (left side) */}
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: "easeOut" }}
-          className="lg:col-span-7 order-2 lg:order-1 space-y-6"
+          className="lg:col-span-7 order-2 lg:order-1 space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left"
         >
           {/* Status Badge */}
           <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md shadow-inner">
@@ -24,7 +24,7 @@ export const Hero: React.FC = () => {
           </div>
           
           {/* Main Title */}
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-black tracking-tight text-white leading-[1.08] font-display">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.1] font-display">
             Architecting Fast.<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-light to-cyan">
               Modern Software.
@@ -32,18 +32,18 @@ export const Hero: React.FC = () => {
           </h1>
           
           {/* Subtitle / Bio */}
-          <p className="text-base sm:text-lg md:text-xl text-secondary max-w-2xl leading-relaxed font-normal">
+          <p className="text-sm sm:text-base md:text-lg text-secondary max-w-2xl leading-relaxed font-normal">
             Hi, I’m <strong className="text-white font-semibold">{personalData.name}</strong> — a 3rd-semester Computer Engineering student from {personalData.location}. 
-            Having built a strong base in Core Java and DBMS (MySQL) in Semesters 1 & 2, I am currently mastering Frontend Web Technologies (HTML, CSS, Bootstrap, JavaScript) and Python in Semester 3.
+            Having built a strong foundation in Core Java (OOP) and DBMS (MySQL) in Semesters 1 & 2, I am currently mastering Frontend Web Technologies (HTML, CSS, Bootstrap, JavaScript) and Python in Semester 3.
           </p>
 
           {/* Quick Focus Pills */}
-          <div className="flex flex-wrap items-center gap-2 pt-1">
-            <span className="text-xs font-mono text-secondary/60">Current Sem 3 Learning:</span>
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2 pt-1">
+            <span className="text-xs font-mono text-secondary/70">Semester 3 Learning:</span>
             {['HTML5 & CSS3', 'Bootstrap 5', 'JavaScript (ES6+)', 'Python', 'Tailwind CSS'].map((tag, i) => (
               <span 
                 key={i} 
-                className="px-2.5 py-1 rounded-md bg-accent/10 border border-accent/20 text-xs font-mono text-accent-light font-medium"
+                className="px-2.5 py-1 rounded-md bg-accent/10 border border-accent/25 text-xs font-mono text-accent-light font-medium"
               >
                 {tag}
               </span>
@@ -51,43 +51,43 @@ export const Hero: React.FC = () => {
           </div>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-4">
+          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-4 pt-3">
             <a 
               href="#work"
-              className="flex items-center gap-2.5 bg-accent hover:bg-indigo-500 text-white px-7 py-3.5 rounded-xl font-bold text-sm shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] transform hover:-translate-y-0.5 transition-all"
+              className="flex items-center gap-2 bg-accent hover:bg-indigo-500 text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl font-bold text-xs sm:text-sm shadow-[0_0_20px_rgba(99,102,241,0.4)] hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] transform hover:-translate-y-0.5 transition-all"
             >
               <span>Explore Projects</span>
-              <ArrowRight size={18} />
+              <ArrowRight size={16} />
             </a>
 
             <a 
               href="/resume.pdf"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-2 px-6 py-3.5 rounded-xl glass-panel text-white hover:text-accent font-medium text-sm transition-all"
+              className="flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-xl glass-panel text-white hover:text-accent font-medium text-xs sm:text-sm transition-all"
             >
-              <FileText size={17} />
+              <FileText size={16} />
               <span>Resume (PDF)</span>
             </a>
 
             <a 
               href="#terminal"
-              className="flex items-center gap-2 px-5 py-3.5 rounded-xl bg-black/40 hover:bg-black/60 text-secondary hover:text-white border border-white/10 font-mono text-xs transition-colors"
+              className="flex items-center gap-2 px-4 sm:px-5 py-3 sm:py-3.5 rounded-xl bg-black/40 hover:bg-black/60 text-secondary hover:text-white border border-white/10 font-mono text-xs transition-colors"
             >
-              <Terminal size={15} />
+              <Terminal size={14} />
               <span>Open CLI</span>
             </a>
           </div>
         </motion.div>
 
-        {/* Right Column: Hero Profile Visual with Floating Badges */}
+        {/* Profile Visual: order-1 on mobile (visible first at the top), order-2 on desktop (right side) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.15, ease: "easeOut" }}
-          className="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center relative"
+          className="lg:col-span-5 order-1 lg:order-2 flex justify-center items-center relative py-2 sm:py-4"
         >
-          <div className="relative w-64 h-64 sm:w-72 sm:h-72 md:w-80 md:h-80">
+          <div className="relative w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80">
             {/* Ambient Multi-color Glowing Halo */}
             <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-accent via-cyan/40 to-purple-500 blur-3xl opacity-50 animate-pulse pointer-events-none" />
             
@@ -106,9 +106,9 @@ export const Hero: React.FC = () => {
             </div>
 
             {/* Availability Badge */}
-            <div className="absolute -bottom-3 right-4 sm:right-6 glass-panel px-4 py-1.5 rounded-full border border-white/15 shadow-xl flex items-center gap-2">
+            <div className="absolute -bottom-2 right-2 sm:right-4 glass-panel px-3.5 py-1 sm:py-1.5 rounded-full border border-white/15 shadow-xl flex items-center gap-1.5 sm:gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span className="text-xs font-mono font-medium text-white/95">Open to Internships</span>
+              <span className="text-[11px] sm:text-xs font-mono font-medium text-white/95">Open to Internships</span>
             </div>
           </div>
         </motion.div>

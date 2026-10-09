@@ -2,10 +2,17 @@ import { useState, useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import CommandPalette from './components/CommandPalette';
+import ScrollToTop from './components/ScrollToTop';
+import CustomCursor from './components/CustomCursor';
 import ParticleDrift from '@/components/ui/particle-drift';
 
 function App() {
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+
+  useEffect(() => {
+    // Ensure the website always opens at the top
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -46,6 +53,8 @@ function App() {
           isOpen={isCommandPaletteOpen} 
           onClose={() => setIsCommandPaletteOpen(false)} 
         />
+        <ScrollToTop />
+        <CustomCursor />
       </div>
     </div>
   );

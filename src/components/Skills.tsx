@@ -87,10 +87,10 @@ export const Skills: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.4 }}
-              className="glow-card rounded-3xl p-6 sm:p-8 border border-white/10 bg-[#0e121b]/80 backdrop-blur-xl relative overflow-hidden flex flex-col justify-between"
+              className="glow-card rounded-3xl p-6 sm:p-8 border border-white/10 bg-[#0e121b]/80 backdrop-blur-xl relative overflow-hidden flex flex-col justify-start h-full"
             >
               {/* Category Header */}
-              <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-white/5">
+              <div className="flex items-center gap-3.5 mb-6 pb-4 border-b border-white/5 shrink-0">
                 <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center">
                   {getCategoryIcon(category.categoryKey)}
                 </div>
