@@ -9,8 +9,8 @@ interface CommandPaletteProps {
 
 const commands = [
   { id: 'home', title: 'Home', icon: <Compass size={18} />, action: () => window.scrollTo(0, 0) },
-  { id: 'projects', title: 'Projects', icon: <Code size={18} />, action: () => document.getElementById('work')?.scrollIntoView() },
   { id: 'about', title: 'About', icon: <User size={18} />, action: () => document.getElementById('about')?.scrollIntoView() },
+  { id: 'work', title: 'Projects', icon: <Code size={18} />, action: () => document.getElementById('work')?.scrollIntoView() },
   { id: 'skills', title: 'Skills', icon: <Briefcase size={18} />, action: () => document.getElementById('skills')?.scrollIntoView() },
   { id: 'journey', title: 'Journey', icon: <Compass size={18} />, action: () => document.getElementById('journey')?.scrollIntoView() },
   { id: 'github', title: 'GitHub', icon: <Github size={18} />, action: () => document.getElementById('github')?.scrollIntoView() },

@@ -144,36 +144,6 @@ export const projects: Project[] = [
     demo: "",
     image: "/project-classroom.jpg",
     highlights: ["Student Analytics", "Timetable Grid", "Role Management"]
-  },
-  {
-    id: "developer-ecosystem",
-    number: "05",
-    title: "Developer Portfolio & Interactive Canvas",
-    description: "Cutting-edge personal engineering portfolio featuring live background Particle Drift canvas, 3D interactive showcase, command palette, and terminal CLI.",
-    category: "Full Stack Web",
-    categoryKey: "web",
-    featured: false,
-    technologies: ["React 19", "TypeScript", "Tailwind CSS v4", "Framer Motion", "Vite"],
-    features: [
-      "Live canvas particle simulation running on sandboxed background thread",
-      "Full 3D project deck carousel with touch swipe gestures and grid view toggle",
-      "Interactive developer CLI terminal emulator with command parser",
-      "Keyboard-accessible Command Palette (`Ctrl/Cmd + K`) for instant navigation"
-    ],
-    problem: "Standard generic template portfolios fail to reflect true engineering craftsmanship, technical depth, and attention to micro-interactions.",
-    solution: "Crafted a bespoke, lightning-fast dark mode portfolio engineered with custom motion physics, glassmorphic typography, and robust mobile ergonomics.",
-    challenges: [
-      "Achieving seamless 60fps animations across mobile browsers and low-power devices",
-      "Integrating custom iframe particle mechanics without intercepting page touch events"
-    ],
-    learning: [
-      "Advanced Framer Motion orchestration, spring physics, and gesture controls",
-      "Tailwind CSS v4 `@theme` token customization and performant glassmorphism",
-      "TypeScript type safety across complex multimodal interactive components"
-    ],
-    github: "https://github.com/jaydudhat1412/portfolio_project",
-    demo: "https://xpertdental.vercel.app",
-    image: "/project-future.jpg",
-    highlights: ["Interactive Canvas", "Interactive CLI", "60 FPS Animations"]
   }
 ];
+

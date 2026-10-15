@@ -123,7 +123,7 @@ export const Hero: React.FC = () => {
         className="mt-14 grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 sm:p-6 rounded-2xl glass-panel border border-white/10"
       >
         {[
-          { label: 'Engineering Projects', value: '05+', detail: 'Full-stack & systems' },
+          { label: 'Engineering Projects', value: '04+', detail: 'Full-stack & systems' },
           { label: 'DSA & Logic Solved', value: '100+', detail: 'Java & Data Structures' },
           { label: 'Academic Standing', value: 'Sem 03', detail: 'Computer Engineering' },
           { label: 'Technical Arsenal', value: '15+', detail: 'Modern languages & tools' },

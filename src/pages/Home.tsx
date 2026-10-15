@@ -1,7 +1,7 @@
 import React from 'react';
 import Hero from '../components/Hero';
-import DeveloperStatus from '../components/DeveloperStatus';
 import WorksWheel from '../components/WorksWheel';
+import DeveloperStatus from '../components/DeveloperStatus';
 import Skills from '../components/Skills';
 import Journey from '../components/Journey';
 import GitHubSection from '../components/GitHubSection';
@@ -16,7 +16,7 @@ const Home: React.FC = () => {
         {/* Hero Section: Full Width, spacious, uncompressed */}
         <Hero />
 
-        {/* Works Showcase - Interactive 3D Deck & Grid View */}
+        {/* Featured Projects & Engineering Showcase */}
         <div className="mt-24">
           <WorksWheel />
         </div>
