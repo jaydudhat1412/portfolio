@@ -4,7 +4,6 @@ import WorksWheel from '../components/WorksWheel';
 import DeveloperStatus from '../components/DeveloperStatus';
 import Skills from '../components/Skills';
 import Journey from '../components/Journey';
-import GitHubSection from '../components/GitHubSection';
 import Contact from '../components/Contact';
 import TerminalSection from '../components/TerminalSection';
 import Footer from '../components/Footer';
@@ -31,9 +30,8 @@ const Home: React.FC = () => {
           <div className="lg:col-span-7">
             <Journey />
           </div>
-          <div className="lg:col-span-5 flex flex-col gap-8">
+          <div className="lg:col-span-5">
             <DeveloperStatus />
-            <GitHubSection />
           </div>
         </div>
 

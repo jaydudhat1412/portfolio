@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, Code, User, Compass, Briefcase, Github, Mail } from 'lucide-react';
+import { personalData } from '../data/personal';
 
 interface CommandPaletteProps {
   isOpen: boolean;
@@ -13,7 +14,7 @@ const commands = [
   { id: 'work', title: 'Projects', icon: <Code size={18} />, action: () => document.getElementById('work')?.scrollIntoView() },
   { id: 'skills', title: 'Skills', icon: <Briefcase size={18} />, action: () => document.getElementById('skills')?.scrollIntoView() },
   { id: 'journey', title: 'Journey', icon: <Compass size={18} />, action: () => document.getElementById('journey')?.scrollIntoView() },
-  { id: 'github', title: 'GitHub', icon: <Github size={18} />, action: () => document.getElementById('github')?.scrollIntoView() },
+  { id: 'github', title: 'GitHub Profile', icon: <Github size={18} />, action: () => window.open(`https://github.com/${personalData.github}`, '_blank') },
   { id: 'contact', title: 'Contact', icon: <Mail size={18} />, action: () => document.getElementById('contact')?.scrollIntoView() },
 ];
 
